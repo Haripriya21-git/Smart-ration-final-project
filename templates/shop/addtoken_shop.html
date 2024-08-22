@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends 'shop/shophomeindex2.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/addtoken_post/">
+    {% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <td>token_no</td>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield2" id="textfield2" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>date</td>
+      <td><label for="textfield2"></label>
+      <input type="date" name="textfield" id="textfield2" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td>from</td>
+      <td><label for="textfield2"></label>
+      <input type="time" name="textfield11" id="textfield2" class="form-control"/></td>
+    </tr><tr>
+      <td>to</td>
+      <td><label for="textfield2"></label>
+      <input type="time" name="textfield22" id="textfield2" class="form-control"/></td>
+    </tr>
+    <tr>
+      <td align="center" colspan="2"><input type="submit" name="button" id="button" value="add" class="btn btn btn-info"/></td>
+      
+    </tr>
+  </table>
+  
+</form>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends 'shop/shophomeindex2.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/viewbooking_post/">
+{% csrf_token %}
+<table class="table table-bordered">
+  <tr>
+    <td>From Date</td>
+    <td><label for="textfield2"></label>
+      <input type="date" name="textfield2" id="textfield2" class="form-control"/></td>
+      <td>To Date</td>
+    <td><label for="textfield2"></label>
+      <input type="date" name="textfield3" id="textfield2" class="form-control"/></td>
+    <td><input type="submit" name="button" id="button" value="GO" class="btn btn btn-info" /></td>
+  </tr>
+</table>
+<table class="table table-bordered">
+  <tr>
+    <th>sl.no</th>
+    <th>date</th>
+    <th>cardholder_name</th>
+    <th>card.no</th>
+    <th>card type</th>
+
+    <th>total_price</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>&nbsp;{{ i.date }}</td>
+    <td>&nbsp;{{ i.CARDHOLDER.cardholder_name }}</td>
+    <td>&nbsp;{{ i.CARDHOLDER.rationcard_no }}</td>
+    <td>{{ i.CARDHOLDER.card_type }}</td>
+    <td>{{ i.total_price }}</td>
+  <td><a href="/myapp/viewbooking_sub/{{ i.id }}">view more</a></td>
+  </tr>
+    {% endfor %}
+</table>
+<p>&nbsp;</p>
+
+  
+</form>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends 'admin/adminhomeindex2.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/viewcardholder_rejected_post/">
+{% csrf_token %}
+  <table class="table table-bordered">
+    <tr>
+      <td>search</td>
+      <td><label for="textfield"></label>
+      <input type="text" name="textfield" id="textfield" class="form-control" placeholder="rationcard no"/></td>
+      <td><input type="submit" name="button" id="button" value="GO" class="btn btn btn-info"/></td>
+    </tr>
+  </table>
+  <table class="table table-bordered">
+    <tr>
+      <th>SL.no</th>
+      <th>Ration card.no</th>
+      <th>cardholder name</th>
+      <th>card type</th>
+      <th>Address</th>
+      <th>Member.no</th>
+{#      <th>Members name</th>#}
+      <th>House.no</th>
+      <th>Ward.no</th>
+      <th>Occupation</th>
+      <th>Spouse name</th>
+      <th>contact</th>
+
+
+
+
+
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td>&nbsp;{{ forloop.counter }}</td>
+      <td>&nbsp;{{ i.rationcard_no }}</td>
+      <td>{{ i.cardholder_name }} <br>&nbsp;<img src="{{ i.photo }}" height="50px" width="50px" alt=""/><br>
+{#      <td>{{ i.card_color }}</td>#}
+      <td>{{ i.card_type }}</td>
+      <td>{{ i.place }}<br>{{ i.post }}<br>{{ i.pincode }}<br>{{ i.district}}</td>
+{#      <td>{{ i.post }}</td>#}
+{#      <td>{{ i.pincode }}</td>#}
+{#      <td>{{ i.district}}</td>#}
+      <td>{{ i.members_no }}</td>
+{#      <td>&nbsp;{{ i.members_name }}</td>#}
+      <td>{{ i.house_no }}</td>
+      <td>&nbsp;{{ i.ward_no }}</td>
+      <td>{{ i.occupation }}</td>
+      <td>&nbsp;{{ i.spouse_name }}</td>
+      <td>&nbsp;{{ i.phone }}<br>{{ i.email_id }}</td>
+
+{#        {% if app %}#}
+{#    <td><a href="/myapp/approvech/{{ i.LOGIN.id }}">accept</a> </td>#}
+{#    <td><a href="/myapp/rejectch/{{ i.LOGIN.id }}">reject</a> </td>#}
+{#    {% endif %}#}
+
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% extends 'shop/shophomeindex2.html' %}
+{% block body %}
+<body>
+<form id="form1" name="form1" method="post" action="/myapp/viewtoken_post/">
+{% csrf_token %}
+    <table CLASS="table table-bordered">
+    <tr>
+      <td>from date</td>
+      <td>
+      <input type="date" name="textfield" id="textfield" class="form-control"/></td>
+              <td>to date</td>
+
+     <td> <input type="date" name="textfield1" id="textfield" class="form-control" /></td>
+      <td><input type="submit" name="button" id="button" value="go" class="btn btn btn-info" /></td>
+    </tr>
+  </table>
+ <table class="table table-bordered">
+  <tr>
+    <td>sl.no</td>
+    <td>date</td>
+    <td>token_no</td>
+    <td>from_time</td>
+    <td>to_time</td>
+      <td></td>
+  </tr>
+     {% for i in data %}
+     <tr>
+    <td>{{ forloop.counter }}</td>
+    <td>{{ i.date }}</td>
+    <td>{{ i.token_no }}</td>
+    <td>{{ i.from_time }}</td>
+    <td>{{ i.to_time }}</td>
+     <td><a href="/myapp/viewtokenrequest/{{ i.id }}">requests ({{ i.req }})</a> </td>
+  </tr>
+{% endfor %}
+
+
+
+</table>
+</form>
+</body>
+
+{% endblock %}
+</html>

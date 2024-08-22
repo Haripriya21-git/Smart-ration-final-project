@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+{% extends 'shop/shophomeindex2.html' %}
+{% block body %}
+<body>
+<form action="">
+  <table class="table table-bordered">
+    <tr>
+      <th>photo</th>
+        <td><img src="{{ data.photo }}" height="100" width="100"></td>
+
+    </tr><tr>
+      <th>shop.no</th>
+      <td>{{ data.rationshop_no }}
+      </td>
+    </tr>
+    <tr>
+      <th>shopkeeper_name</th>
+      <td>{{ data.shopkeeper_name }}
+      </td>
+    </tr>
+    <tr>
+      <th>district</th>
+      <td>{{ data.district }}
+      </td>
+    </tr>
+    <tr>
+      <th>place</th>
+      <td>{{ data.place }}
+      </td>
+    </tr>
+    <tr>
+      <th>post</th>
+      <td>{{ data.post }}
+      </td>
+    </tr>
+    <tr>
+      <th>pincode</th>
+      <td>{{ data.pincode }}
+      </td>
+    </tr>
+    <tr>
+      <th>thaluk</th>
+      <td>{{ data.thaluk }}
+      </td>
+    </tr>
+    <tr>
+      <th>ward.no</th>
+      <td>{{ data.ward_no }}
+      </td>
+    </tr>
+    <tr>
+      <th>phone</th>
+      <td>{{ data.phone }}
+      </td>
+    </tr>
+      <tr>
+      <th>email</th>
+      <td>{{ data.email }}
+      </td>
+    </tr>
+
+    <tr>
+      <td ><a href="/myapp/editprofileshop/">edit</a></td>
+        <td ><a href="/myapp/changepassword_shop/">change password</a></td>
+      
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
+</html>
